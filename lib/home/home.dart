@@ -54,6 +54,10 @@ class NumberCounter extends StatelessWidget {
         (computationCount) => counter.streamCount++,
       ),
       builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return const Text("Error");
+        }
+
         if (snapshot.hasData == false) {
           return Text(
             "-",
